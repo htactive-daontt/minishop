@@ -26,14 +26,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $categories = Categories::where('parent_id', 0)->get();
+        $categories = Categories::where('parent_id', 0)->get();
 
-        // Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
 
-        // View::share('urlAdmin','/admin');
-        // View::share('urlHome','/home');
-        // View::share('urlStorage','/');
+        View::share('urlAdmin','/admin');
+        View::share('urlHome','/home');
+        View::share('urlStorage','/');
 
-        // View::share('categories', $categories );
+        View::share('categories', $categories );
     }
 }

@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(NewsSeeder::class);
         $this->call(SlidesSeeder::class);
         $this->call(GiftCodesSeeder::class);
+        $this->call(PermissionsSeeder::class);
+        $this->call(RolesPermission::class);
+        $this->call(RoleHasPermissions::class);
     }
 }

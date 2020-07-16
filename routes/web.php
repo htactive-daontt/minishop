@@ -18,7 +18,7 @@ Route::group(['namespace'=>'Admin\Auth','prefix'=>'admincp'],function (){
     ]);
 });
 
-Route::group(['namespace'=>'Admin','prefix'=>'admincp','middleware'=>'auth'],function (){
+Route::group(['namespace'=>'Admin','prefix'=>'admincp', 'middleware' => ['guest:admin']],function (){
     Route::get('/',[
         'uses' => 'IndexController@index',
         'as'   => 'admin.index'
@@ -382,6 +382,10 @@ Route::group(['namespace'=>'Home'],function (){
     ]);
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

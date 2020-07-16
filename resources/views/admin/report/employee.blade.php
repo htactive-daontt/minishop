@@ -36,7 +36,7 @@
                                         <tr class="gradeU">
                                             <td>{!! $stt !!}</td>
                                             <td>{!! $value->name !!}</td>
-                                            <td>{!! $value->role->role !!}</td>
+                                            <td></td>
                                             <td>{{ count($value->report_bill) }} đơn</td>
                                             <td></td>
                                             <td>

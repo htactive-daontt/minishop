@@ -8,6 +8,7 @@ use App\Repositories\News\NewsRepository;
 use App\Repositories\Products\ProductsRepository;
 use App\Repositories\Users\UsersRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -22,6 +23,8 @@ class IndexController extends Controller
         $this->news = $newsRepository;
         $this->bills = $billsRepository;
         $this->users = $usersRepository;
+
+
     }
 
     public function index() {
@@ -31,6 +34,7 @@ class IndexController extends Controller
             'order' => count($this->bills->all()),
             'user' => count($this->users->all()),
         ];
+
         return view('admin.index', compact('arCount'));
     }
 }

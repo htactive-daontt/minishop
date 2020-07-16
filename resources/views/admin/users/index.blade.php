@@ -4,7 +4,7 @@
 {{--src--}}
 @section('src-header-admin')
     <!-- DataTables CSS -->
-    <link href="{{$urlAdmin}}/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="{{$urlAdmin}}/css/dataTable s/dataTables.bootstrap.css" rel="stylesheet">
     <!-- DataTables Responsive CSS -->
     <link href="{{$urlAdmin}}/css/dataTables/dataTables.responsive.css" rel="stylesheet">
 @endsection
@@ -56,7 +56,7 @@
                                                 <td>{{$value->email}}</td>
                                                 <td>{{$value->address}}</td>
                                                 <td>{{$value->phone}}</td>
-                                                <td>{{$value->role->role}}</td>
+                                                <td></td>
                                                 <td>
                                                     <a href="{{route('admin.users.update',$value->id)}}" class="btn btn-primary">Sửa</a>
                                                     <a href="{{route('admin.users.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger" >Xóa</a>

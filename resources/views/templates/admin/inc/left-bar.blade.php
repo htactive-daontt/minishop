@@ -16,15 +16,17 @@
                 <a href="{{route('admin.index')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-product-hunt fa-fw"></i> Quản lý Sản phẩm<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{route('admin.categories.get')}}">Danh mục</a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.products.get')}}">Sản phẩm</a>
-                    </li>
-                </ul>
+               @canany('category-list')
+                    <a href="#"><i class="fa fa-product-hunt fa-fw"></i> Quản lý Sản phẩm<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{route('admin.categories.get')}}">Danh mục</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.products.get')}}">Sản phẩm</a>
+                        </li>
+                    </ul>
+                @endcanany
                 <!-- /.nav-second-level -->
             </li>
             <li>

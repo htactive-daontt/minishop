@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class Users.
@@ -20,12 +21,14 @@ class Users extends Authenticatable implements MustVerifyEmail
 {
     use TransformableTrait;
     use Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     protected $fillable = [
         'name', 'email', 'address', 'phone', 'password', 'role_id',
     ];
