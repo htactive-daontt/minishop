@@ -15,16 +15,19 @@
             <li>
                 <a href="{{route('admin.index')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
             </li>
-            @canany('category-list|category-create|category-edit|category-delete')
+            @canany(['category-list','category-edit'])
             <li>
                     <a href="#"><i class="fa fa-product-hunt fa-fw"></i> Quản lý Sản phẩm<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="{{route('admin.categories.get')}}">Danh mục</a>
                         </li>
+
+                        @canany('product-list')
                         <li>
                             <a href="{{route('admin.products.get')}}">Sản phẩm</a>
                         </li>
+                        @endcanany
                     </ul>
                 <!-- /.nav-second-level -->
             </li>
