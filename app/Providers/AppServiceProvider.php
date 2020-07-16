@@ -6,6 +6,7 @@ use App\Entities\Categories\Categories;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Database\Schema\Builder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Builder::defaultStringLength(191);
         $categories = Categories::where('parent_id', 0)->get();
 
         Schema::defaultStringLength(191);

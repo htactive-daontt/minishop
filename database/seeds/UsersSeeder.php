@@ -18,7 +18,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 1
         ]);
 
         DB::table('users')->insert([
@@ -27,7 +26,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 2
         ]);
 
         DB::table('users')->insert([
@@ -36,7 +34,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 3
         ]);
 
         DB::table('users')->insert([
@@ -45,7 +42,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 3
         ]);
 
         DB::table('users')->insert([
@@ -54,7 +50,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 3
         ]);
 
         DB::table('users')->insert([
@@ -63,7 +58,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 3
         ]);
 
         DB::table('users')->insert([
@@ -72,7 +66,6 @@ class UsersSeeder extends Seeder
             'address'   => 'Hải Châu',
             'phone' => 12312,
             'password'  => Hash::make('123'),
-            'role_id'   => 3
         ]);
     }
 }

@@ -14,7 +14,7 @@ class CreateGiftCodesTable extends Migration
     public function up()
     {
         Schema::create('gift_codes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('code',50);
             $table->integer('value');
             $table->integer('qty');

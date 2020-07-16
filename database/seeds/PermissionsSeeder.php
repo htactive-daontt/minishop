@@ -96,6 +96,25 @@ class PermissionsSeeder extends Seeder
             'name' => 'news-delete',
             'guard_name'   => 'admin',
         ]);
+
+        ///
+        DB::table('permissions')->insert([
+            'name' => 'slide-list',
+            'guard_name'   => 'admin',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'slide-create',
+            'guard_name'   => 'admin',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'slide-edit',
+            'guard_name'   => 'admin',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'slide-delete',
+            'guard_name'   => 'admin',
+        ]);
+
         ///
         DB::table('permissions')->insert([
             'name' => 'contact-list',

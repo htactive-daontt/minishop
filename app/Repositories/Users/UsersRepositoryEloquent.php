@@ -79,7 +79,6 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
     }
 
     public function createCustomer($data) {
-        $data['role_id'] = 3;
         $data['password'] = Hash::make($data['password']);
 
         $create = $this->create($data);
@@ -92,13 +91,6 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
     public function login($user)
     {
         if (Auth::attempt($user)) {
-            if (Auth::user()->role_id !=3) {
-                return [
-                    'route' => 'home.page.login',
-                    'message' => ['error'=>'Bạn không thể đăng nhập tại đây']
-                ];
-            }
-
             if (empty(Auth::user()->email_verified_at)) {
                 Auth::logout();
                 return [

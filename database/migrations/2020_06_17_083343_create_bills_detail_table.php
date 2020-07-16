@@ -14,7 +14,7 @@ class CreateBillsDetailTable extends Migration
     public function up()
     {
         Schema::create('bills_detail', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('bill_id');
             $table->integer('product_id');
             $table->integer('qty');

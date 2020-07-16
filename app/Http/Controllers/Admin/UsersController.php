@@ -80,6 +80,9 @@ class UsersController extends Controller
             'roles' => $this->repository->getRoles()
         ];
 
+        $user = $this->repository->find($id);
+        $user->givePermissionTo('bill-list');
+
         return view('admin.users.edit', compact('data'));
     }
 

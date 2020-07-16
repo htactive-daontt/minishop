@@ -14,6 +14,11 @@ class CategoriesController extends Controller
     public function __construct(CategoriesRepository $categoriesRepository)
     {
         $this->repository = $categoriesRepository;
+
+        $this->middleware('permission:category-list', ['only' => ['index','status']]);
+        $this->middleware('permission:category-create', ['only' => ['create','store']]);
+        $this->middleware('permission:category-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:category-delete', ['only' => ['destroy']]);
     }
 
     /**
