@@ -70,7 +70,7 @@ class SendMailRegister extends Notification
             \Illuminate\Support\Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             [
                 'id' => $notifiable->getKey(),
-                'hash' => sha1($notifiable->getEmailForVerification()),
+                'hash' => sha1($notifiable->email),
             ]
         );
     }

@@ -59,7 +59,7 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
         $create = $this->create($data);
         $create->assignRole($role);
         if ($create) {
-            //$create->sendEmailVerificationNotification();
+            $create->sendEmailVerificationNotification();
             return 'Thêm thành công' ;
         }
     }
@@ -89,7 +89,7 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
 
         $create = $this->create($data);
         $create->assignRole(3);
-        //$create->sendEmailVerificationNotification();
+        $create->sendEmailVerificationNotification();
 
         return 'Đăng ký thành công, vui lòng kiểm tra email để xác nhận tài khoản';
     }
