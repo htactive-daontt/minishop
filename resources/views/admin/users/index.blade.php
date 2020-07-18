@@ -57,7 +57,7 @@
                                                 <td>{{$value->address}}</td>
                                                 <td>{{$value->phone}}</td>
                                                 <td>
-
+                                                    {{$value->roles->first()->name}}
                                                 </td>
                                                 <td>
                                                     <a href="{{route('admin.users.update',$value->id)}}" class="btn btn-primary">Sửa</a>

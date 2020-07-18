@@ -96,7 +96,7 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
 
     public function login($user)
     {
-        if (Auth::attempt($user)) {
+        if (Auth::guard('web')->attempt($user)) {
             if (empty(Auth::user()->email_verified_at)) {
                 Auth::logout();
                 return [

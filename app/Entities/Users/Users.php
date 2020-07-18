@@ -6,6 +6,7 @@ namespace App\Entities\Users;
 use App\Notifications\SendMailRegister;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Notifications\Notifiable;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -32,7 +33,7 @@ class Users extends Authenticatable implements MustVerifyEmail
     protected $guard_name = 'admin';
 
     protected $fillable = [
-        'name', 'email', 'address', 'phone', 'password', 'role_id',
+        'name', 'email', 'address', 'phone', 'password'
     ];
 
     /**
@@ -55,8 +56,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 
 
 
-    public function role() {
-        return $this->belongsTo('App\Entities\Roles\Roles','role_id');
+    public function hasRoles() {
+        return $this->hasMany('App\Entities\ModelHasRoles\ModelHasRoles','model_id');
     }
 
     public function report_bill() {

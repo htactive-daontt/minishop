@@ -88,12 +88,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $data = [
-            'user' => $this->repository->find($id)->first(),
+            'user' => $this->repository->find($id),
             'roles' => $this->repository->getRoles()
         ];
-
-        $user = $this->repository->find($id);
-
 
         return view('admin.users.edit', compact('data'));
     }

@@ -16,13 +16,8 @@ class AuthController extends Controller
         $user = $request->only(['email','password']);
 
         if ( Auth::attempt($user) ) {
-            if ( Auth::user()->role_id == 3 ) {
-                Auth::logout();
 
-                return redirect()->back()->with(['error'=>'Sai mật khẩu hoặc tài khoản']);
-            }else {
-                return redirect()->route('admin.index');
-            }
+            return redirect()->route('admin.index');
         }else {
             return redirect()->back()->with(['error'=>'Sai mật khẩu hoặc tài khoản']);
         }

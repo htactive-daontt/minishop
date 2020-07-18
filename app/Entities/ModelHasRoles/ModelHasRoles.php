@@ -24,4 +24,7 @@ class ModelHasRoles extends Model implements Transformable
         'role_id', 'model_type', 'model_id'
     ];
 
+    public function roleUser() {
+        return $this->belongsTo('App\Entities\Roles\Roles','mode_id');
+    }
 }

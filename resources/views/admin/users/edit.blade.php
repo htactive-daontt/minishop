@@ -59,7 +59,7 @@
                                                     <option value="">--Chọn--</option>
                                                     @foreach($data['roles'] as $value)
                                                         @php $active = ''; @endphp
-                                                        @if( $value->id == $data['user']->role_id )
+                                                        @if( $value->id == $data['user']->roles->first()->id )
                                                             @php $active = 'selected=""'; @endphp
                                                         @endif
                                                         <option {{$active}} value="{{$value->id}}">{{$value->name}}</option>
