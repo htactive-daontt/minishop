@@ -167,5 +167,15 @@ class PermissionsSeeder extends Seeder
             'name' => 'report-delete',
             'guard_name'   => 'admin',
         ]);
+
+        ///
+        DB::table('permissions')->insert([
+            'name' => 'auth-list',
+            'guard_name'   => 'admin',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'auth-edit',
+            'guard_name'   => 'admin',
+        ]);
     }
 }

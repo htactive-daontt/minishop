@@ -2,17 +2,17 @@
 
 namespace App\Repositories\Users;
 
+use App\Entities\ModelHasRoles\ModelHasRoles;
 use App\Entities\Roles\Roles;
-use Carbon\Carbon;
-use Illuminate\Foundation\Auth\RegistersUsers;
+
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Users\UsersRepository;
 use App\Entities\Users\Users;
 use App\Validators\Users\UsersValidator;
+use Spatie\Permission\Models\Role;
 
 
 /**
@@ -53,18 +53,18 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
         return Roles::all();
     }
 
-    public function createUser($data) {
+    public function createUser($data, $role) {
         $data['password'] = Hash::make($data['password']);
 
         $create = $this->create($data);
-
+        $create->assignRole($role);
         if ($create) {
-            $create->sendEmailVerificationNotification();
+            //$create->sendEmailVerificationNotification();
             return 'Thêm thành công' ;
         }
     }
 
-    public function updateUser($data, $id) {
+    public function updateUser($data, $role, $id) {
         if ( !empty($data['password']) ) {
             $data['password'] = Hash::make($data['password']);
         }else {
@@ -73,17 +73,23 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
         }
 
         $update = $this->update($data, $id);
+        $user = $this->find($id);
+
+        $roleOld = ModelHasRoles::where('model_id', $id)->first();
+        $user->removeRole($roleOld->role_id);
+        $user->assignRole($role);
 
         return 'Cập nhập thành công';
 
     }
 
     public function createCustomer($data) {
+
         $data['password'] = Hash::make($data['password']);
 
         $create = $this->create($data);
-
-        $create->sendEmailVerificationNotification();
+        $create->assignRole(3);
+        //$create->sendEmailVerificationNotification();
 
         return 'Đăng ký thành công, vui lòng kiểm tra email để xác nhận tài khoản';
     }

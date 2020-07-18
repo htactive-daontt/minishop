@@ -62,7 +62,7 @@
                                                         @if( $value->id == $data['user']->role_id )
                                                             @php $active = 'selected=""'; @endphp
                                                         @endif
-                                                        <option {{$active}} value="{{$value->id}}">{{$value->role}}</option>
+                                                        <option {{$active}} value="{{$value->id}}">{{$value->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

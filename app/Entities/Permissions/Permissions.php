@@ -1,21 +1,19 @@
 <?php
 
-namespace App\Entities\Roles;
+namespace App\Entities\Permissions;
 
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-use Spatie\Permission\Traits\HasRoles;
 
 /**
- * Class Roles.
+ * Class Permissions.
  *
- * @package namespace App\Entities\Roles;
+ * @package namespace App\Entities\Permissions;
  */
-class Roles extends Model implements Transformable
+class Permissions extends Model implements Transformable
 {
     use TransformableTrait;
-    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +21,7 @@ class Roles extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'role'
+        'name','guard_name'
     ];
 
 }

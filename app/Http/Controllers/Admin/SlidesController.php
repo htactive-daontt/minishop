@@ -12,6 +12,11 @@ class SlidesController extends Controller
     public function __construct(SlidesRepository $slidesRepository)
     {
         $this->repository = $slidesRepository;
+
+        $this->middleware('permission:slide-list', ['only' => ['index']]);
+        $this->middleware('permission:slide-create', ['only' => ['create','store']]);
+        $this->middleware('permission:slide-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:slide-delete', ['only' => ['destroy']]);
     }
 
     /**

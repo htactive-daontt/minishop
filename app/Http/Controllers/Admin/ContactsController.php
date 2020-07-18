@@ -13,6 +13,9 @@ class ContactsController extends Controller
     public function __construct(ContactsRepository $contactsRepository)
     {
         $this->repository = $contactsRepository;
+
+        $this->middleware('permission:contact-list', ['only' => ['index','status']]);
+        $this->middleware('permission:contact-delete', ['only' => ['destroy','confirm']]);
     }
 
     /**

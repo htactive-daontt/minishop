@@ -15,7 +15,7 @@
             <li>
                 <a href="{{route('admin.index')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
             </li>
-            @canany(['category-list','category-edit'])
+            @canany('category-list')
             <li>
                     <a href="#"><i class="fa fa-product-hunt fa-fw"></i> Quản lý Sản phẩm<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -82,6 +82,12 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @endcanany
+
+            @canany('auth-list')
+                <li>
+                    <a href="{{route('admin.rolep.index')}}"><i class="fa fa-user-md fa-fw"></i> Phân quyền </a>
+                </li>
             @endcanany
 
         </ul>

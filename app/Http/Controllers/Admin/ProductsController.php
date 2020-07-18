@@ -18,6 +18,11 @@ class ProductsController extends Controller
     {
         $this->repository = $productsRepository;
         $this->commentRepo = $commentsRepository;
+
+        $this->middleware('permission:product-list', ['only' => ['index','viewComment']]);
+        $this->middleware('permission:product-create', ['only' => ['create','store','addQty']]);
+        $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:product-delete', ['only' => ['destroy','delComment']]);
     }
 
     /**

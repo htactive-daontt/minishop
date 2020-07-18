@@ -15,9 +15,9 @@ interface UsersRepository extends RepositoryInterface
 
     public function getRoles();
 
-    public function createUser($data);
+    public function createUser($data,$role);
 
-    public function updateUser($data, $id);
+    public function updateUser($data, $role, $id);
 
     public function createCustomer($data);
 

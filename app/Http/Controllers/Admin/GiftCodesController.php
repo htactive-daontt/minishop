@@ -14,6 +14,11 @@ class GiftCodesController extends Controller
     public function __construct(GiftCodesRepository $giftCodesRepository)
     {
         $this->repository = $giftCodesRepository;
+
+        $this->middleware('permission:giftcode-list', ['only' => ['index']]);
+        $this->middleware('permission:giftcode-create', ['only' => ['create','store']]);
+        $this->middleware('permission:giftcode-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:giftcode-delete', ['only' => ['destroy']]);
     }
 
     /**

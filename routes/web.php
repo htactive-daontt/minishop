@@ -253,6 +253,11 @@ Route::group(['namespace'=>'Admin','prefix'=>'admincp', 'middleware' => ['auth',
             'as'   => 'admin.report.employeeDetail'
         ]);
     });
+    Route::group(['prefix'=>'role'],function (){
+        Route::get('phan-quyen','RolesUserController@index')->name('admin.rolep.index');
+        Route::get('phan-quyen/{id}','RolesUserController@edit')->name('admin.rolep.edit');
+        Route::post('phan-quyen/{id}','RolesUserController@postEdit')->name('admin.rolep.postEdit');
+    });
 });
 
     Auth::routes(['verify' => true]);

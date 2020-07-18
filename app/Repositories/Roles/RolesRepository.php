@@ -11,5 +11,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface RolesRepository extends RepositoryInterface
 {
-    //
+    public function getRoles();
 }

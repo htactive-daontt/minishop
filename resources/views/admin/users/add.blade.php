@@ -63,7 +63,7 @@
                                                 <select name="role_id" id="" class="form-control">
                                                     <option value="">--Chọn--</option>
                                                     @foreach($roles as $value)
-                                                        <option value="{{$value->id}}">{{$value->role}}</option>
+                                                        <option value="{{$value->id}}">{{$value->name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <span class="alert-danger">{{$errors->first('role_id')}}</span>

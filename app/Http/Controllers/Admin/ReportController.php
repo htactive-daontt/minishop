@@ -20,6 +20,8 @@ class ReportController extends Controller
         $this->billRepo = $billsRepository;
         $this->bilDetailRepo = $billsDetailRepository;
         $this->reportExport = $reportBillExport;
+
+        $this->middleware('permission:report-list', ['only' => ['bills','exportBill','employee','employeeDetail']]);
     }
 
     public function bills($year) {

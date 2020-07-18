@@ -14,6 +14,11 @@ class NewsController extends Controller
     public function __construct(NewsRepository $newsRepository)
     {
         $this->repository = $newsRepository;
+
+        $this->middleware('permission:news-list', ['only' => ['index']]);
+        $this->middleware('permission:news-create', ['only' => ['create','store']]);
+        $this->middleware('permission:news-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:news-delete', ['only' => ['destroy']]);
     }
 
     /**

@@ -35,6 +35,9 @@ class RepositoriesProvider extends ServiceProvider
         $this->app->bind(\App\Repositories\Users\UsersRepository::class, \App\Repositories\Users\UsersRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\Bills\BillsRepository::class, \App\Repositories\Bills\BillsRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\BillsDetail\BillsDetailRepository::class, \App\Repositories\BillsDetail\BillsDetailRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\Permissions\PermissionsRepository::class, \App\Repositories\Permissions\PermissionsRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\ModelHasPermissions\ModelHasPermissionsRepository::class, \App\Repositories\ModelHasPermissions\ModelHasPermissionsRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\RoleHasPermissions\RoleHasPermissionsRepository::class, \App\Repositories\RoleHasPermissions\RoleHasPermissionsRepositoryEloquent::class);
 
     }
 }

@@ -5,15 +5,26 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UsersCreate;
 use App\Http\Requests\Users\UsersUpdate;
+use App\Repositories\Roles\RolesRepository;
 use App\Repositories\Users\UsersRepository;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
 
-    public function __construct(UsersRepository $usersRepository)
+    public function __construct
+    (
+        UsersRepository $usersRepository,
+        RolesRepository $rolesRepository
+    )
     {
         $this->repository = $usersRepository;
+        $this->roleRepo = $rolesRepository;
+
+        $this->middleware('permission:user-list', ['only' => ['index']]);
+        $this->middleware('permission:user-create', ['only' => ['create','store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -24,9 +35,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = $this->repository->getUsers();
+        $role = $this->roleRepo->getRoles();
 
-
-        return  view('admin.users.index', compact('users'));
+        return  view('admin.users.index', compact('users','role'));
     }
 
     /**
@@ -49,7 +60,8 @@ class UsersController extends Controller
      */
     public function store(UsersCreate $request)
     {
-        $create = $this->repository->createUser($request->except('_token'));
+        $role = $request->get('role_id');
+        $create = $this->repository->createUser($request->except(['_token','role_id']), $role);
 
         return redirect()
             ->route('admin.users.get')
@@ -81,7 +93,7 @@ class UsersController extends Controller
         ];
 
         $user = $this->repository->find($id);
-        $user->givePermissionTo('bill-list');
+
 
         return view('admin.users.edit', compact('data'));
     }
@@ -95,7 +107,8 @@ class UsersController extends Controller
      */
     public function update(UsersUpdate $request, $id)
     {
-        $updated = $this->repository->updateUser($request->except('_token'), $id);
+        $role = $request->get('role_id');
+        $updated = $this->repository->updateUser($request->except(['_token','role_id']), $role,$id);
 
 
         return redirect()

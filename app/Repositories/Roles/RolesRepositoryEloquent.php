@@ -4,8 +4,7 @@ namespace App\Repositories\Roles;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Roles\RolesRepository;
-use App\Entities\Roles\Roles;
+use Spatie\Permission\Models\Role;
 use App\Validators\Roles\RolesValidator;
 
 /**
@@ -22,10 +21,10 @@ class RolesRepositoryEloquent extends BaseRepository implements RolesRepository
      */
     public function model()
     {
-        return Roles::class;
+        return Role::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +33,9 @@ class RolesRepositoryEloquent extends BaseRepository implements RolesRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    public function getRoles() {
+        return $this->model->pluck('roles.name','roles.id')->all();
+    }
+
 }

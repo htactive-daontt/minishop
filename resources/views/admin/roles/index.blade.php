@@ -1,6 +1,6 @@
 @extends('templates.admin.master')
 {{--title--}}
-@section('title-admin') Quản Lý Người Dùng @endsection
+@section('title-admin') Phân Quyền @endsection
 {{--src--}}
 @section('src-header-admin')
     <!-- DataTables CSS -->
@@ -14,8 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Người dùng</h1>
-                    <a href="{{route('admin.users.add')}}" class="btn btn-primary" style="margin-bottom: 15px">Thêm Người Dùng</a>
+                    <h1 class="page-header">Phân quyền</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -31,38 +30,28 @@
                             @endif
                         </div>
                         <!-- /.panel-heading -->
-                        @if(isset($users))
+                        @if(isset($roles))
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                         <tr>
                                             <th>STT</th>
-                                            <th>Họ tên</th>
-                                            <th>Email</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Số điện thoại</th>
-                                            <th>Cấp độ</th>
+                                            <th>Tên</th>
+                                            <th>Quyền</th>
                                             <th>Chức Năng</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @php $stt=0 @endphp
-                                        @foreach($users as $value)
+                                        @foreach($roles as $value)
                                             @php $stt++; @endphp
                                             <tr class="gradeU delete-{{$value->id}}">
                                                 <td>{!! $stt !!}</td>
-                                                <td>{!! $value->name !!}</td>
-                                                <td>{{$value->email}}</td>
-                                                <td>{{$value->address}}</td>
-                                                <td>{{$value->phone}}</td>
+                                                <td>{{ $value->name }}</td>
+                                                <td>{{ $value->guard_name }}</td>
                                                 <td>
-
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('admin.users.update',$value->id)}}" class="btn btn-primary">Sửa</a>
-                                                    <a href="{{route('admin.users.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger" >Xóa</a>
-
+                                                    <a href="{{route('admin.rolep.edit',$value->id)}}" class="btn btn-primary">Sửa</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -109,10 +98,7 @@
                     }
                 });
             });
-            $('#dataTables-example').DataTable({
-                responsive: true,
-                "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]]
-            });
+
         });
     </script>
 @endsection

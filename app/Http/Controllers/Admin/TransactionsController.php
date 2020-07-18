@@ -14,6 +14,11 @@ class TransactionsController extends Controller
     public function __construct(BillsRepository $billsRepository)
     {
         $this->repository = $billsRepository;
+
+        $this->middleware('permission:bill-list', ['only' => ['index','export','approved','']]);
+        $this->middleware('permission:bill-create', ['only' => ['create','store','sendMail']]);
+        $this->middleware('permission:bill-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:bill-delete', ['only' => ['destroy']]);
     }
 
     /**
