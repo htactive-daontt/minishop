@@ -132,7 +132,7 @@
     </div>
 
     <!-- Ads -->
-
+    @if(empty($data['news']))
     <div class="avds">
         <div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
             <div class="avds_small">
@@ -165,7 +165,7 @@
             </div>
         </div>
     </div>
-
+    @endif
     <!-- Products -->
 
     <div class="products">
