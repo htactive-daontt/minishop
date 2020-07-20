@@ -38,7 +38,7 @@
                                             <td>{!! $value->name !!}</td>
                                             <td></td>
                                             <td>{{ count($value->report_bill) }} đơn</td>
-                                            <td></td>
+                                            <td>{{ $value->roles->first()->name }}</td>
                                             <td>
                                                 <a href="javascript:void(0)" data-id="{{$value->id}}" class="btn btn-info view_employee_detail">Xem</a>
                                             </td>
