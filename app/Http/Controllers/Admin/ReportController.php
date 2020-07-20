@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Exports\ReportBillExport;
 use App\Http\Controllers\Controller;
 use App\Repositories\Bills\BillsRepository;
 use App\Repositories\BillsDetail\BillsDetailRepository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class ReportController extends Controller
 {
     public function __construct(
         BillsRepository $billsRepository,
-        BillsDetailRepository $billsDetailRepository,
-        ReportBillExport $reportBillExport
+        BillsDetailRepository $billsDetailRepository
     )
     {
         $this->billRepo = $billsRepository;
         $this->bilDetailRepo = $billsDetailRepository;
-        $this->reportExport = $reportBillExport;
 
         $this->middleware('permission:report-list', ['only' => ['bills','exportBill','employee','employeeDetail']]);
     }
@@ -33,7 +28,7 @@ class ReportController extends Controller
     }
 
     public function exportBill() {
-        $this->reportExport->handle();
+
     }
 
     public function employee() {

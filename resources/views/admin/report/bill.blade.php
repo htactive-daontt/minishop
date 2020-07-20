@@ -17,7 +17,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Danh sách đơn hàng </h1>
                     <div class="col-lg-6">
-                        <a href="{{ route('admin.report.exportBill') }}" class="btn btn-primary" style="margin-bottom: 15px">Xuất file</a>
+{{--                        <a href="{{ route('admin.report.exportBill') }}" class="btn btn-primary" style="margin-bottom: 15px">Xuất file</a>--}}
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
