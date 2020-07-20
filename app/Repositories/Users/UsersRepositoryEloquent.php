@@ -45,7 +45,7 @@ class UsersRepositoryEloquent extends BaseRepository implements UsersRepository
     }
 
     public function getUsers() {
-        return Users::with('role')->get();
+        return Users::all();
     }
 
     public function getRoles()
