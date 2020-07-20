@@ -182,7 +182,6 @@ class BillsRepositoryEloquent extends BaseRepository implements BillsRepository
 
     public function reportEmployee() {
         return Users::with('report_bill')
-            ->with('role')
             ->get();
     }
 
