@@ -15,7 +15,7 @@ class AuthController extends Controller
     public function postLogin(Request $request) {
         $user = $request->only(['email','password']);
 
-        if ( Auth::attempt($user) ) {
+        if ( Auth::guard('admin')->attempt($user) ) {
 
             return redirect()->route('admin.index');
         }else {
