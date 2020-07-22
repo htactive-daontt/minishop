@@ -50,7 +50,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
             'auth_id'   => Auth::id()
         ];
 
-        $this->create($arrCreate);
+        $this->insert($arrCreate);
 
         return 'Thêm thành công';
     }
