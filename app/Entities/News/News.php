@@ -31,7 +31,7 @@ class News extends Model implements Transformable
     public function getImg(){
         $src = $this->thumbnail;
 
-        return asset("storage/news_thumnail/$src");
+        return asset("storage/news_thumbnail/$src");
     }
 
 }
