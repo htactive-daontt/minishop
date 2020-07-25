@@ -205,7 +205,7 @@
     @endsection
     @section('src-footer')
         <script src="{{ asset('home/js/checkout.js') }}"></script>
-        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AbzlmwAqYk2mGjqo7CfOLUYo1Q2C92zktRMqiop1N2I9oNzp-f7Ico9aZHD4FpLDmDhe45Wf6hLfrDjX&currency=USD"></script>
         <script !src="">
             $(document).ready(function () {
                 $('#formCheckOut').submit(function (e) {

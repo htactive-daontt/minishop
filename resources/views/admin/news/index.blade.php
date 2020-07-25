@@ -15,7 +15,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Tin Tức </h1>
+                    @canany('news-create')
                     <a href="{{route('admin.news.add')}}" class="btn btn-primary" style="margin-bottom: 15px">Thêm tin</a>
+                    @endcanany
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

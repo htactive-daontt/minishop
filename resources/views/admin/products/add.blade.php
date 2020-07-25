@@ -32,12 +32,12 @@
                                         @csrf
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
-                                            <input class="form-control" name="nameproduct" placeholder="Nhập tên sản phẩm">
+                                            <input class="form-control" name="nameproduct" value="{{ old('nameproduct') }}" placeholder="Nhập tên sản phẩm">
                                             <span class="alert-danger">{{$errors->first('nameproduct')}}</span>
                                         </div>
                                         <div class="form-group">
                                             <label>Số lượng</label>
-                                            <input class="form-control" type="number" name="qty" placeholder="Nhập số lượng">
+                                            <input class="form-control" type="number" name="qty" value="{{ old('nameproduct') }}" placeholder="Nhập số lượng">
                                             <span class="alert-danger">{{$errors->first('qty')}}</span>
                                         </div>
                                         @if(isset($categories))
@@ -46,7 +46,7 @@
                                                 <select class="form-control" name="idcat">
                                                     <option value="">--Không--</option>
                                                     @foreach($categories as $value)
-                                                        <option value="{!! $value->id !!}">{!! $value->name !!}</option>
+                                                        <option value="{!! $value->id !!}"  {{ $value->id == old('idcat') ? 'selected' : '' }}>{!! $value->name !!}</option>
                                                     @endforeach
                                                 </select>
                                                 <span class="alert-danger">{{$errors->first('idcat')}}</span>
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Giá</label>
-                                            <input type="number" class="form-control" name="price" placeholder="Nhập giá">
+                                            <input type="number" class="form-control" name="price" value="{{ old('price') }}" placeholder="Nhập giá">
                                             <span class="alert-danger">{{$errors->first('price')}}</span>
                                         </div>
                                         <div class="form-group">
@@ -72,12 +72,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mô tả</label>
-                                            <textarea name="preview" id="" cols="5" rows="3" class="form-control"></textarea>
+                                            <textarea name="preview" id="" cols="5" rows="3" class="form-control" value="{{ old('preview') }}"></textarea>
                                             <span class="alert-danger">{{$errors->first('preview')}}</span>
                                         </div>
                                         <div class="form-group">
                                             <label>Chi tiết</label>
-                                            <textarea id="editor2"  name="detail" class="ckeditor form-control"></textarea>
+                                            <textarea id="editor2"  name="detail" class="ckeditor form-control">value="{{ old('detail') }}"</textarea>
                                             {{--<span class="alert-danger">{{$errors->first('detail')}}</span>--}}
                                         </div>
                                         <input type="submit" class="btn btn-primary" value="Thêm">
