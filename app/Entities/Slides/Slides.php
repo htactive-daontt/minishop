@@ -21,11 +21,11 @@ class Slides extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'title','preview','thumbnail'
+        'title','preview','thumbnail', 'user_id'
     ];
 
     public function creator() {
-        return $this->belongsTo('App\Entities\Users\Users','auth_id');
+        return $this->belongsTo('App\Entities\Users\Users','user_id');
     }
 
     public function getImg() {

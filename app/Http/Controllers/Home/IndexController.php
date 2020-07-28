@@ -33,9 +33,10 @@ class IndexController extends Controller
 
     public function index() {
         $data = [
-            'products' => $this->repository->getProductsHome(),
+            'productsNew' => $this->repository->getProductsNew(),
+            'productSale'   => $this->repository->getProductsSale(),
+            'productSeling' => $this->repository->getProductSeling(),
             'slides'    => $this->slideRepository->all(),
-            'news'  => $this->newRepository->getNewsHome()
         ];
 
         return view('home.index', compact('data'));

@@ -34,9 +34,9 @@
                                     </li>
                                     <li class="hassubs">
                                         <a href="{{route('home.page.categories',['sdsa',1])}}">Danh mục</a>
-                                        <ul>
+                                        <ul style="right: -35px !important">
                                             @foreach($categories as $key => $value)
-                                                <li><a href="{{route('home.page.categories',[$value['slug'],$value['id']])}}">{{$value['name']}}</a></li>
+                                                <li style="text-align: center;width: 100px"><a href="{{route('home.page.categories',[$value['slug'],$value['id']])}}">{{$value['name']}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>

@@ -132,70 +132,49 @@
     </div>
 
     <!-- Ads -->
-    @if(empty($data['news']))
-    <div class="avds">
-        <div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
-            <div class="avds_small">
-                <div class="avds_background" style="background-image:url({{ $data['news'][0]->getImg() }})"></div>
-                <div class="avds_small_inner">
-                    <div class="avds_discount_container">
-                        <img src="{{ asset('home/images/discount.png') }}" alt="">
-                        <div>
-                            <div class="avds_discount">
-                                <div>20<span>%</span></div>
-                                <div>Discount</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="avds_small_content">
-                        <div class="avds_title">{{ $data['news'][0]->title }}</div>
-                        <div class="avds_link"><a href="{{ route('home.page.newDetail', $data['news'][0]->id) }}">Xem thêm</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="avds_large">
-                <div class="avds_background" style="background-image:url({{$data['news'][1]->getImg()}})"></div>
-                <div class="avds_large_container">
-                    <div class="avds_large_content">
-                        <div class="avds_title">{{ $data['news'][1]->title }}</div>
-                        <div class="avds_text">{{ $data['news'][1]->preview }}</div>
-                        <div class="avds_link avds_link_large"><a href="{{ route('home.page.newDetail', $data['news'][1]->id) }}">Xem thêm</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
     <!-- Products -->
 
     <div class="products">
         <div class="container">
-            <div class="row">
-                <div class="col">
-
-                    <div class="product_grid">
-
-                        <!-- Product -->
-                        @if(isset($data['products']))
-                        @foreach($data['products'] as $keyOfProducts => $valueOfProducts)
-                            <div class="product">
-                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
-                                @if($valueOfProducts->sale !=0)
-                                    <div class="product_extra product_sale"><a href="">Sale</a></div>
-                                @else
-                                    <div class="product_extra product_new"><a href="">New</a></div>
+            <div class="row tabs-product-index">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#pdNewPr">Sản phẩm mới nhất</a></li>
+                    <li><a data-toggle="tab" href="#pdSeling">Sản phẩm bán chạy</a></li>
+                    <li><a data-toggle="tab" href="#pdSale">Sản phẩm giảm giá</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="row">
+                    <div class="col">
+                        <div class="tab-content">
+                            <div id="pdNewPr" class="tab-pane fade in active show">
+                                <div class="product_grid">
+                                    @if(isset($data['productsNew']))
+                                        @foreach($data['productsNew'] as $keyOfProducts => $valueOfProducts)
+                                            <div class="product">
+                                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
+                                                @if($valueOfProducts->sale !=0)
+                                                    <div class="product_extra product_sale"><a href="">Sale</a></div>
+                                                @else
+                                                    <div class="product_extra product_new"><a href="">New</a></div>
+                                                @endif
+                                                <div class="product_content">
+                                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
+                                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
+                                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
+                                                </div>
+                                            </div>
+                                    @endforeach
                                 @endif
-                                <div class="product_content">
-                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
-                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
-                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
+                                    <!-- Product -->
                                 </div>
                             </div>
-                        @endforeach
-                        @endif
-                    </div>
-                    {{ $data['products']->links() }}
 
+                        </div>
+
+                        {{ $data['productSeling']->links() }}
+
+                    </div>
                 </div>
             </div>
         </div>

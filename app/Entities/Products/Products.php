@@ -33,6 +33,10 @@ class Products extends Model implements Transformable
         return $this->hasMany('App\Entities\Comments\Comments','product_id');
     }
 
+    public function suscess_bill() {
+        return  $this->hasMany('App\Entities\BillsDetail\BillsDetail', 'product_id');
+    }
+
     public function checkQty() {
         if ($this->qty <= 0) {
             echo "<span style='color:red'>Hết hàng</span>";

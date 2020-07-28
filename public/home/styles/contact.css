@@ -5,6 +5,8 @@
 
 [Table of Contents]
 
+
+
 1. Fonts
 2. Body and some general stuff
 3. Header
@@ -105,11 +107,11 @@ p a:hover::after
 }
 ::selection
 {
-	
+
 }
 p::selection
 {
-	
+
 }
 h1{font-size: 48px;}
 h2{font-size: 36px;}
@@ -123,14 +125,14 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection, 
-h2::selection, 
-h3::selection, 
-h4::selection, 
-h5::selection, 
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
 h6::selection
 {
-	
+
 }
 .form-control
 {
@@ -315,12 +317,12 @@ section
 {
 	width: 100%;
 	z-index: 1;
-	background: #FFFFFF;
+	background: #FEE5F5;
 }
 .header_content
 {
 	width: 100%;
-	height: 130px;
+	height: 70px;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -401,7 +403,7 @@ section
 	right: -15px;
 	top: calc(100% + 20px);
 	text-align: right;
-	background: #FFFFFF;
+	background: #FEE5F5;
 	padding-right: 25px;
 	padding-left: 35px;
 	padding-top: 25px;
@@ -575,9 +577,9 @@ section
 	font-weight: 400 !important;
 	font-style: italic;
 	color: #767676 !important;
-} 
+}
 .search_input:-ms-input-placeholder
-{ 
+{
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
@@ -1020,6 +1022,7 @@ section
 	bottom: 0;
 	width: 100%;
 	z-index: 1;
+    background: #FEE5F5;
 }
 .footer_background
 {

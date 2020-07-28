@@ -43,7 +43,7 @@ class SlidesRepositoryEloquent extends BaseRepository implements SlidesRepositor
 
     public function createSlide($data)
     {
-        $data['auth_id'] = Auth::id();
+        $data['user_id'] = Auth::id();
         $data['thumbnail'] = $this->handleThumbnail($data['thumbnail'], 'public/slides_thumbnail');
         $create = $this->insert($data);
         return 'Thêm thành công';

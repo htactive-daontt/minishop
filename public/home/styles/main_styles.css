@@ -109,11 +109,11 @@ p a:hover::after
 }
 ::selection
 {
-	
+
 }
 p::selection
 {
-	
+
 }
 h1{font-size: 48px;}
 h2{font-size: 36px;}
@@ -127,14 +127,14 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection, 
-h2::selection, 
-h3::selection, 
-h4::selection, 
-h5::selection, 
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
 h6::selection
 {
-	
+
 }
 .form-control
 {
@@ -401,7 +401,7 @@ section
 	right: -15px;
 	top: calc(100% + 20px);
 	text-align: right;
-	background: #FFFFFF;
+	background: #FEE5F5;
 	padding-right: 25px;
 	padding-left: 35px;
 	padding-top: 25px;
@@ -535,7 +535,7 @@ section
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background: #e4e4e4;
+	background: #FDF4F9;
 	z-index: -1;
 }
 .search_panel.active
@@ -575,9 +575,9 @@ section
 	font-weight: 400 !important;
 	font-style: italic;
 	color: #767676 !important;
-} 
+}
 .search_input:-ms-input-placeholder
-{ 
+{
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
@@ -1097,7 +1097,7 @@ section
 .product_image
 {
 	width: 100%;
-	min-height: 250px;
+	height: 250px;
 	border-bottom: 1px dotted #ccc;
 }
 .product_image img
@@ -1445,4 +1445,18 @@ section
 .footer_social ul li a i:hover
 {
 	color: #FFFFFF;
+}
+.tabs-product-index {
+    margin-bottom: 40px;
+}
+.tabs-product-index ul {
+    margin: 0 auto;
+}
+.tabs-product-index ul li {
+    padding: 20px;
+}
+.tabs-product-index ul li a {
+    color: #333333;
+    text-transform: uppercase;
+    font-weight: 500;
 }

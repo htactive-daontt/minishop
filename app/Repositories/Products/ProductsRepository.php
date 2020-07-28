@@ -27,5 +27,7 @@ interface ProductsRepository extends RepositoryInterface
 
     public function getProductsRelate($id, $category_id);
 
-    public function getProductsHome();
+    public function getProductsNew();
+    public function getProductsSale();
+    public function getProductSeling();
 }

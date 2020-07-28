@@ -21,11 +21,11 @@ class News extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'title','preview','detail','thumbnail'
+        'title','preview','detail','thumbnail', 'user_id'
     ];
 
     public function creator() {
-        return $this->belongsTo('App\Entities\Users\Users','auth_id');
+        return $this->belongsTo('App\Entities\Users\Users','user_id');
     }
 
     public function getImg(){

@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Products;
 
+use App\Criteria\WithCountRelationshipCriteria;
 use App\Entities\Categories\Categories;
 use Illuminate\Support\Facades\Storage;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -155,7 +156,18 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
                     ->get();
     }
 
-    public function getProductsHome() {
+    public function getProductsNew() {
         return Products::with('category')->paginate(8);
+    }
+
+    public function getProductsSale() {
+        return Products::with('category')
+                        ->where('sale', '>', 0)
+                        ->orderBy('sale', 'ASC')
+                        ->paginate(8);
+    }
+
+    public function getProductSeling() {
+        return Products::withCount('suscess_bill') ->paginate(8);
     }
 }
