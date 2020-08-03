@@ -3,6 +3,11 @@
 @section('src-home')
     <link rel="stylesheet" type="text/css" href="{{ asset('home/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('home/styles/responsive.css') }}">
+    <style>
+        .tabcontent {
+            display: none;
+        }
+    </style>
 @endsection
 @section('content-home')
         <!-- Search Panel -->
@@ -136,21 +141,50 @@
 
     <div class="products">
         <div class="container">
-            <div class="row tabs-product-index">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#pdNewPr">Sản phẩm mới nhất</a></li>
-                    <li><a data-toggle="tab" href="#pdSeling">Sản phẩm bán chạy</a></li>
-                    <li><a data-toggle="tab" href="#pdSale">Sản phẩm giảm giá</a></li>
-                </ul>
-            </div>
-            <div class="tab-content">
+            <div>
+                <div class="row tabs-product-index">
+                    <ul class="nav nav-tabs">
+                        <li><a  href="javascript:void(0)">Sản phẩm mới nhất</a></li>
+                    </ul>
+                </div>
                 <div class="row">
                     <div class="col">
                         <div class="tab-content">
-                            <div id="pdNewPr" class="tab-pane fade in active show">
+                            <div id="pdNewPr" class="">
                                 <div class="product_grid">
                                     @if(isset($data['productsNew']))
                                         @foreach($data['productsNew'] as $keyOfProducts => $valueOfProducts)
+                                            <div class="product">
+                                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
+                                                <div class="product_extra product_new"><a href="">New</a></div>
+                                                <div class="product_content">
+                                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
+                                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
+                                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
+                                                </div>
+                                            </div>
+                                    @endforeach
+                                @endif
+                                <!-- Product -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row tabs-product-index">
+                    <ul class="nav nav-tabs">
+                        <li><a  href="javascript:void(0)">Sản phẩm bán chạy</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="tab-content">
+                            <div id="pdSeling" class="">
+                                <div class="product_grid">
+                                    @if(isset($data['productSale']))
+                                        @foreach($data['productSale'] as $keyOfProducts => $valueOfProducts)
                                             <div class="product">
                                                 <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
                                                 @if($valueOfProducts->sale !=0)
@@ -166,20 +200,47 @@
                                             </div>
                                     @endforeach
                                 @endif
-                                    <!-- Product -->
+                                <!-- Product -->
                                 </div>
                             </div>
-
                         </div>
-
-                        {{ $data['productSeling']->links() }}
-
                     </div>
                 </div>
             </div>
+            <div>
+                <div class="row tabs-product-index">
+                    <ul class="nav nav-tabs">
+                        <li><a  href="javascript:void(0)">Sản phẩm giảm giá</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="tab-content">
+                            <div id="pdSale" class="">
+                                <div class="product_grid">
+                                    @if(isset($data['productSale']))
+                                        @foreach($data['productSale'] as $keyOfProducts => $valueOfProducts)
+                                            <div class="product">
+                                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
+                                                <div class="product_extra product_sale"><a href="">{{ $valueOfProducts->sale }} %</a></div>
+                                                <div class="product_content">
+                                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
+                                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
+                                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
+                                                </div>
+                                            </div>
+                                    @endforeach
+                                @endif
+                                <!-- Product -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>{{$data['productsNew']->links()}}</div>
         </div>
     </div>
-
     <!-- Icon Boxes -->
 
     <div class="icon_boxes">

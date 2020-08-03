@@ -11,6 +11,7 @@ use App\Repositories\Products\ProductsRepository;
 use App\Entities\Products\Products;
 use App\Validators\Products\ProductsValidator;
 use Illuminate\Support\Str;
+use  DB;
 
 /**
  * Class ProductsRepositoryEloquent.
@@ -138,10 +139,10 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
             'detail'  => $data['detail'],
             'thumbnail'  => $thumbnail,
             'images'  => $images,
-            'detail'  => $data['idcat'],
+            'detail'  => $data['detail'],
         ];
 
-        $this->update($update, $id);
+        DB::table('products')->where('id', $id)->update($update);
         return 'Cập nhập thành công';
     }
 
@@ -157,17 +158,19 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
     }
 
     public function getProductsNew() {
-        return Products::with('category')->paginate(8);
+        return Products::with('category')
+                        ->orderBy('id', 'DESC')
+                        ->paginate(4);
     }
 
     public function getProductsSale() {
         return Products::with('category')
                         ->where('sale', '>', 0)
                         ->orderBy('sale', 'ASC')
-                        ->paginate(8);
+                        ->paginate(4);
     }
 
     public function getProductSeling() {
-        return Products::withCount('suscess_bill') ->paginate(8);
+        return Products::inRandomOrder()->paginate(4);
     }
 }
