@@ -22,7 +22,7 @@ class Products extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'name','qty','price','preview','detail','thumbnail','images','category_id'
+        'name','qty','sale','price','preview','detail','thumbnail','images','category_id'
     ];
 
     public function category() {
