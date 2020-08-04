@@ -166,7 +166,9 @@ class BillsRepositoryEloquent extends BaseRepository implements BillsRepository
     }
 
     public function getBillReport() {
-        return $this->model->where('status', 1)->get();
+        return $this->model->where('status', 1)
+                            ->with('user')
+                            ->get();
     }
 
     public function reportChart($year)

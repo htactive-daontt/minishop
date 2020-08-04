@@ -117,11 +117,11 @@
                                             <tr class="gradeU">
                                                 <td>{!! $sttPr !!}</td>
                                                 <td>
-                                                    {!! $valueTop->product->name !!}
+                                                    {!! $valueTop->product['name'] !!}
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        @php $abc = $valueTop->product->thumbnail @endphp
+                                                        @php $abc = $valueTop->product['thumbnail'] @endphp
                                                         <img src="{{ asset("storage/products_thumbnail/$abc") }}" style="width: 100px" alt="">
                                                     </div>
                                                 </td>
