@@ -145,7 +145,7 @@ class ProductsController extends Controller
 
             $update = $this->repository->update(['qty'=>$qty],$id);
 
-            return true;
+            return 1;
         }
     }
 }

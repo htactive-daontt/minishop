@@ -133,16 +133,16 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
             'name'  => $data['nameproduct'],
             'slug'  => Str::slug($data['nameproduct']),
             'qty'  => $data['qty'],
-            'price'  => $data['price'],
             'sale'  => $data['sale'],
+            'price'  => $data['price'],
             'preview'  => $data['preview'],
             'detail'  => $data['detail'],
             'thumbnail'  => $thumbnail,
             'images'  => $images,
-            'detail'  => $data['detail'],
+            'category_id'  => $data['idcat'],
         ];
 
-        $this->update($update, $id);
+        Products::find($id)->update($update);
 
         return 'Cập nhập thành công';
     }
