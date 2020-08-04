@@ -142,7 +142,8 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
             'detail'  => $data['detail'],
         ];
 
-        DB::table('products')->where('id', $id)->update($update);
+        $this->update($update, $id);
+
         return 'Cập nhập thành công';
     }
 
