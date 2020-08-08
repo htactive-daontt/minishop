@@ -235,14 +235,19 @@
 
     <div class="home">
         <div class="home_container">
-            <div class="home_background" style="background-image:url({{ asset('home/images/categories.jpg') }})"></div>
+            <div class="home_background" style="background-image:url({{ asset('home/images/h2.jpg') }})"></div>
             <div class="home_content_container">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <div class="home_content">
-                                <div class="home_title">{{$objectProduct->category->name}}<span>.</span></div>
-                                <div class="home_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</p></div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="index.html">Trang chủ</a></li>
+                                        <li>{{$objectProduct->category->name}}</li>
+                                        <li>{{$objectProduct->name}}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

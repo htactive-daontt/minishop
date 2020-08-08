@@ -70,7 +70,7 @@
 
     <div class="home">
         <div class="home_container">
-            <div class="home_background" style="background-image:url({{ asset('home/images/cart.jpg') }})"></div>
+            <div class="home_background" style="background-image:url({{ asset('home/images/h4.jpg') }})"></div>
             <div class="home_content_container">
                 <div class="container">
                     <div class="row">
@@ -78,9 +78,9 @@
                             <div class="home_content">
                                 <div class="breadcrumbs">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="categories.html">Categories</a></li>
-                                        <li>Shopping Cart</li>
+                                        <li><a href="index.html">Trang chủ</a></li>
+                                        <li><a href="categories.html">Danh mục</a></li>
+                                        <li>Giỏ hàng</li>
                                     </ul>
                                 </div>
                             </div>
@@ -125,11 +125,11 @@
                         </div>
                         <!-- Price -->
                         <div class="cart_item_price">{{ number_format($valueOfCart->price) }} đ</div>
-                        <!-- Quantity -->
+                        <!-- Quantity breadcrumbs-->
                         <div class="cart_item_quantity">
                             <div class="product_quantity_container">
                                 <div class="product_quantity clearfix">
-                                    <span>Qty</span>
+                                  
                                     <input id="quantity_input" name="qty" class="update-qty-{{$valueOfCart->rowId}}" type="text" pattern="[0-9]*" value="{{$valueOfCart->qty}}">
                                     <div class="quantity_buttons">
                                         <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
@@ -178,7 +178,8 @@
                     <div class="cart_total">
                         <div class="section_title">Tổng tiền</div>
                         @if(Session::has('msg'))
-                            <div class="section_subtitle">{{Session::get('msg')}}</div>
+                            <div class="section_subtitle text-danger
+                            ">{{Session::get('msg')}}</div>
                         @endif
                         <div class="cart_total_container">
                             <ul>

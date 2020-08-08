@@ -70,7 +70,7 @@
 
     <div class="home">
         <div class="home_container">
-            <div class="home_background" style="background-image:url({{ asset('home/images/cart.jpg') }})"></div>
+            <div class="home_background" style="background-image:url({{ asset('home/images/h4.jpg') }})"></div>
             <div class="home_content_container">
                 <div class="container">
                     <div class="row">
@@ -78,9 +78,9 @@
                             <div class="home_content">
                                 <div class="breadcrumbs">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                        <li>Checkout</li>
+                                        <li><a href="index.html">Trang chủ</a></li>
+                                        <li><a href="cart.html">Giỏ hàng</a></li>
+                                        <li>Thanh toán</li>
                                     </ul>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                 <div class="col-lg-6">
                     <div class="order checkout_section">
                         <div class="section_title">Đơn hàng</div>
-                        <div class="section_subtitle">Chi tiết đơn hàng</div>
+                        <div class="section_subtitle text-danger">Chi tiết đơn hàng</div>
 
                         <!-- Order details -->
                         <div class="order_list_container">
@@ -166,6 +166,10 @@
                                 <li class="d-flex flex-row align-items-center justify-content-start">
                                     <div class="order_list_title">Thuế</div>
                                     <div class="order_list_value ml-auto">{{ Cart::tax(0) }} đ</div>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div class="order_list_title">Giảm giá</div>
+                                    <div class="order_list_value ml-auto">{{ Cart::discount(0) }} đ</div>
                                 </li>
                                 <li class="d-flex flex-row align-items-center justify-content-start">
                                     <div class="order_list_title">Tổng trả</div>

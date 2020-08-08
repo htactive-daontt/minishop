@@ -70,7 +70,7 @@
 
     <div class="home">
         <div class="home_container">
-            <div class="home_background" style="background-image:url({{ asset('home/images/contact.jpg') }})"></div>
+            <div class="home_background" style="background-image:url({{ asset('home/images/h3.jpg') }})"></div>
             <div class="home_content_container">
                 <div class="container">
                     <div class="row">
@@ -78,8 +78,8 @@
                             <div class="home_content">
                                 <div class="breadcrumbs">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li>Contact</li>
+                                        <li><a href="index.html">Trang chủ</a></li>
+                                        <li>Liên hệ</li>
                                     </ul>
                                 </div>
                             </div>
@@ -142,24 +142,24 @@
                 <div class="col-lg-3 offset-xl-1 contact_col">
                     <div class="contact_info">
                         <div class="contact_info_section">
-                            <div class="contact_info_title">Marketing</div>
+                            <div class="contact_info_title">nhân viên</div>
                             <ul>
-                                <li>Phone: <span>+53 345 7953 3245</span></li>
-                                <li>Email: <span>yourmail@gmail.com</span></li>
+                                <li>SĐT: <span>+0332114500</span></li>
+                                <li>Email: <span>nguyenthithudao@gmail.com</span></li>
                             </ul>
                         </div>
                         <div class="contact_info_section">
-                            <div class="contact_info_title">Shippiing & Returns</div>
+                            <div class="contact_info_title">Vận chuyển và trả hàng</div>
                             <ul>
-                                <li>Phone: <span>+53 345 7953 3245</span></li>
-                                <li>Email: <span>yourmail@gmail.com</span></li>
+                                <li>SĐT: <span>+0387945303</span></li>
+                                <li>Email: <span>nguyenthithudao75h12@gmail.com</span></li>
                             </ul>
                         </div>
                         <div class="contact_info_section">
-                            <div class="contact_info_title">Information</div>
+                            <div class="contact_info_title">Thông tin</div>
                             <ul>
-                                <li>Phone: <span>+53 345 7953 3245</span></li>
-                                <li>Email: <span>yourmail@gmail.com</span></li>
+                                <li>SĐT: <span>+0355107417</span></li>
+                                <li>Email: <span>dao@gmail.com</span></li>
                             </ul>
                         </div>
                     </div>

@@ -71,14 +71,18 @@
 
     <div class="home">
         <div class="home_container">
-            <div class="home_background" style="background-image:url({{ asset('home/images/categories.jpg') }})"></div>
+            <div class="home_background" style="background-image:url({{ asset('home/images/h1.jpg') }})"></div>
             <div class="home_content_container">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <div class="home_content">
-                                <div class="home_title">{{$productsOfCategories->name}}<span>.</span></div>
-                                <div class="home_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</p></div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="index.html">Trang chủ</a></li>
+                                        <li>{{$productsOfCategories->name}}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,9 +166,9 @@
                 <div class="col-lg-4 icon_box_col">
                     <div class="icon_box">
                         <div class="icon_box_image"><img src="{{ asset('home/images/icon_1.svg') }}" alt=""></div>
-                        <div class="icon_box_title">Free Shipping Worldwide</div>
+                        <div class="icon_box_title">Miễn Phí vận chuyển giao hàng</div>
                         <div class="icon_box_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
+                            <p>Đáp ứng nhu cầu khách hàng nhanh và chuyên nghiệp nhất</p>
                         </div>
                     </div>
                 </div>
@@ -173,9 +177,9 @@
                 <div class="col-lg-4 icon_box_col">
                     <div class="icon_box">
                         <div class="icon_box_image"><img src="{{ asset('home/images/icon_2.svg') }}" alt=""></div>
-                        <div class="icon_box_title">Free Returns</div>
+                        <div class="icon_box_title">Trả hàng miễn miễn phí</div>
                         <div class="icon_box_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
+                            <p>Hỗ trợ đổi trả hàng nhanh chóng</p>
                         </div>
                     </div>
                 </div>
@@ -184,9 +188,9 @@
                 <div class="col-lg-4 icon_box_col">
                     <div class="icon_box">
                         <div class="icon_box_image"><img src="{{ asset('home/images/icon_3.svg') }}" alt=""></div>
-                        <div class="icon_box_title">24h Fast Support</div>
+                        <div class="icon_box_title">Hỗ trợ khách hàng 24 giờ</div>
                         <div class="icon_box_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
+                            <p>Mọi thắc mắc sẽ được hồi đáp trong thời gian gần nhất</p>
                         </div>
                     </div>
                 </div>

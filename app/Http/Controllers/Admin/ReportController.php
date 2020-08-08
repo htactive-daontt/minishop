@@ -23,7 +23,7 @@ class ReportController extends Controller
         $bill = $this->billRepo->getBillReport();
         $chart = $this->billRepo->reportChart($year);
         $productTop = $this->bilDetailRepo->reportTopProduct();
-
+        
         return view('admin.report.bill', compact('bill','chart','productTop'));
     }
 
