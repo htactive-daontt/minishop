@@ -33,6 +33,7 @@ class IndexController extends Controller
 
     public function index() {
         $data = [
+            'product'   => $this->repository->getProductHome(),
             'productsNew' => $this->repository->getProductsNew(),
             'productSale'   => $this->repository->getProductsSale(),
             'productSeling' => $this->repository->getProductSeling(),

@@ -3,11 +3,7 @@
 @section('src-home')
     <link rel="stylesheet" type="text/css" href="{{ asset('home/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('home/styles/responsive.css') }}">
-    <style>
-        .tabcontent {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('home/styles/template.css') }}">
 @endsection
 @section('content-home')
         <!-- Search Panel -->
@@ -142,151 +138,166 @@
     <div class="products">
         <div class="container">
             <div>
-                <div class="row tabs-product-index">
-                    <ul class="nav nav-tabs">
-                        <li><a  href="javascript:void(0)">Sản phẩm mới nhất</a></li>
-                    </ul>
+                <div class="row title-product">
+                    <div class="tab">
+                        <button class="tablinks active" onclick="openCity(event, 'London')" id="defaultOpen">Sản phẩm mới</button>
+                        <button class="tablinks" onclick="openCity(event, 'Paris')">Sản phẩm giảm giá</button>
+                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Sản phẩm bán chạy</button>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="tab-content">
-                            <div id="pdNewPr" class="">
-                                <div class="product_grid">
-                                    @if(isset($data['productsNew']))
-                                        @foreach($data['productsNew'] as $keyOfProducts => $valueOfProducts)
-                                            <div class="product">
-                                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
-                                                <div class="product_extra product_new"><a href="">New</a></div>
-                                                <div class="product_content">
-                                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
-                                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
-                                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
+                        <div class="tabcontent" id="London" style="display: block">
+                            <div class="row product-content owl-two owl-carousel owl-theme">
+                                @foreach($data['productsNew'] as $keyOfProducts => $valueOfProducts)
+                                    <div class="item">
+                                        <div class="col-product">
+                                            <div class="product-item">
+                                                <div class="product-img">
+                                                    <img src="{{ $valueOfProducts->getImg() }}">
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{ $valueOfProducts->name }}</a></h4>
+                                                    <a href="{{ route('home.page.categories', [$valueOfProducts->category->slug, $valueOfProducts->category->id]) }}" class="category-product">Loại: {{ $valueOfProducts->category->name }}</a>
+                                                    <p>{{ $valueOfProducts->getPrice() }}</p>
                                                 </div>
                                             </div>
-                                    @endforeach
-                                @endif
-                                <!-- Product -->
-                                </div>
+                                            <div class="btn-product">
+                                                <a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}" class="btn btn-danger btn-detail">Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="tabcontent" id="Paris">
+                            <div class="row product-content owl-two owl-carousel owl-theme">
+                                @foreach($data['productSale'] as $keyOfProducts => $valueOfProducts)
+                                    <div class="item">
+                                        <div class="col-product">
+                                            <div class="product-item">
+                                                <div class="product-img">
+                                                    <img src="{{ $valueOfProducts->getImg() }}">
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{ $valueOfProducts->name }}</a></h4>
+                                                    <a href="{{ route('home.page.categories', [$valueOfProducts->category->slug, $valueOfProducts->category->id]) }}" class="category-product">Loại: {{ $valueOfProducts->category->name }}</a>
+                                                    <p>{{ $valueOfProducts->getPrice() }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="btn-product">
+                                                <a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}" class="btn btn-danger btn-detail">Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="tabcontent" id="Tokyo">
+                            <div class="row product-content owl-two owl-carousel owl-theme">
+                                @foreach($data['productSeling'] as $keyOfProducts => $valueOfProducts)
+                                    <div class="item">
+                                        <div class="col-product">
+                                            <div class="product-item">
+                                                <div class="product-img">
+                                                    <img src="{{ $valueOfProducts->getImg() }}">
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{ $valueOfProducts->name }}</a></h4>
+                                                    <a href="{{ route('home.page.categories', [$valueOfProducts->category->slug, $valueOfProducts->category->id]) }}" class="category-product">Loại: {{ $valueOfProducts->category->name }}</a>
+                                                    <p>{{ $valueOfProducts->getPrice() }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="btn-product">
+                                                <a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}" class="btn btn-danger btn-detail">Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="row tabs-product-index">
-                    <ul class="nav nav-tabs">
-                        <li><a  href="javascript:void(0)">Sản phẩm bán chạy</a></li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="tab-content">
-                            <div id="pdSeling" class="">
-                                <div class="product_grid">
-                                    @if(isset($data['productSale']))
-                                        @foreach($data['productSale'] as $keyOfProducts => $valueOfProducts)
-                                            <div class="product">
-                                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
-                                                @if($valueOfProducts->sale !=0)
-                                                    <div class="product_extra product_sale"><a href="">Sale</a></div>
-                                                @else
-                                                    <div class="product_extra product_new"><a href="">New</a></div>
-                                                @endif
-                                                <div class="product_content">
-                                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
-                                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
-                                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
-                                                </div>
-                                            </div>
-                                    @endforeach
-                                @endif
-                                <!-- Product -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="row tabs-product-index">
-                    <ul class="nav nav-tabs">
-                        <li><a  href="javascript:void(0)">Sản phẩm giảm giá</a></li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="tab-content">
-                            <div id="pdSale" class="">
-                                <div class="product_grid">
-                                    @if(isset($data['productSale']))
-                                        @foreach($data['productSale'] as $keyOfProducts => $valueOfProducts)
-                                            <div class="product">
-                                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$valueOfProducts->thumbnail") }}" alt=""></div>
-                                                <div class="product_extra product_sale"><a href="">{{ $valueOfProducts->sale }} %</a></div>
-                                                <div class="product_content">
-                                                    <div class="product_title"><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{$valueOfProducts->name}}</a></div>
-                                                    <div class="product_price">{{$valueOfProducts->category->name}}</div>
-                                                    <div class="product_price">{{ $valueOfProducts->checkQty() }}</div>
-                                                </div>
-                                            </div>
-                                    @endforeach
-                                @endif
-                                <!-- Product -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>{{$data['productsNew']->links()}}</div>
         </div>
     </div>
+
     <!-- Icon Boxes -->
 
-    <div class="icon_boxes">
+    <div class="products" style="padding-bottom: 20px">
         <div class="container">
-            <div class="row icon_box_row">
-
-                <!-- Icon Box -->
-                <div class="col-lg-4 icon_box_col">
-                    <div class="icon_box">
-                        <div class="icon_box_image"><img src="{{ asset('home/images/icon_1.svg') }}" alt=""></div>
-                        <div class="icon_box_title">Miễn Phí vận chuyển giao hàng</div>
-                        <div class="icon_box_text">
-                            <p>Đáp ứng nhu cầu khách hàng nhanh và chuyên nghiệp nhất</p>
-                        </div>
+            <div>
+                <div class="row title-product">
+                    <div class="tab">
+                        <h3>Danh sách sản phẩm</h3>
                     </div>
                 </div>
-
-                <!-- Icon Box -->
-                <div class="col-lg-4 icon_box_col">
-                    <div class="icon_box">
-                        <div class="icon_box_image"><img src="{{ asset('home/images/icon_2.svg') }}" alt=""></div>
-                        <div class="icon_box_title">Trả hàng miễn miễn phí</div>
-                        <div class="icon_box_text">
-                            <p>Hỗ trợ đổi trả hàng nhanh chóng</p>
+                <div class="row">
+                    @foreach($data['product'] as $keyOfProducts => $valueOfProducts)
+                        <div class="col-sm-3">
+                            <div class="col-product">
+                                <div class="product-item">
+                                    <div class="product-img">
+                                        <img src="{{ $valueOfProducts->getImg() }}">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4><a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}">{{ $valueOfProducts->name }}</a></h4>
+                                        <a href="{{ route('home.page.categories', [$valueOfProducts->category->slug, $valueOfProducts->category->id]) }}" class="category-product">Loại: {{ $valueOfProducts->category->name }}</a>
+                                        <p>{{ $valueOfProducts->getPrice() }}</p>
+                                    </div>
+                                </div>
+                                <div class="btn-product">
+                                    <a href="{{route('home.page.product',[$valueOfProducts->slug, $valueOfProducts->id])}}" class="btn btn-danger btn-detail">Xem chi tiết</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-
-                <!-- Icon Box -->
-                <div class="col-lg-4 icon_box_col">
-                    <div class="icon_box">
-                        <div class="icon_box_image"><img src="{{ asset('home/images/icon_3.svg') }}" alt=""></div>
-                        <div class="icon_box_title">Hỗ trợ khách hàng 24 giờ</div>
-                        <div class="icon_box_text">
-                            <p>Mọi thắc mắc sẽ được hồi đáp trong thời gian gần nhất</p>
-                        </div>
-                    </div>
-                </div>
-
+                <div>{{ $data['product']->links() }}</div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
 @endsection
 @section('src-footer')
     <script src="{{ asset('home/js/custom.js') }}"></script>
+    <script !src="">
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        };
+        $('.owl-two').owlCarousel({
+            loop:true,
+            margin:15,
+            nav:true,
+            dots: false,
+            autoplay:true,
+            autoplayHoverPause: true,
+            autoplayTimeout:1000,
+            autoplaySpeed:300,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:4
+                }
+            }
+        });
+    </script>
 @endsection
 

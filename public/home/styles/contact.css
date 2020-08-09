@@ -1086,3 +1086,70 @@ section
 {
 	color: #FFFFFF;
 }
+
+section .section-title {
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: #FEE5F5 !important;
+    padding: 20px;
+}
+#footer h5{
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    color:#ffffff;
+    text-transform: uppercase;
+    position: relative;
+}
+#footer h5:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    margin: 0 auto;
+    height: 3px;
+    background: red;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+    padding: 5px 2%;
+}
+#footer ul.social li a i {
+    font-size: 25px;
+}
+#footer ul.social li:hover a i {
+    font-size:30px;
+    margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+    color:#767676;
+}
+#footer ul.social li a:hover{
+    color:#eeeeee;
+}
+ul.list-unstyled.list-inline.social.text-center {
+    margin-top: 30px;
+}
+#footer ul.quick-links li{
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+#footer  h5, ul{
+    text-align: center;
+    color: #767676;
+}

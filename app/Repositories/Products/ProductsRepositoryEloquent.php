@@ -151,6 +151,11 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
         return Categories::where('id', $id)->with('products')->first();
     }
 
+    public function getProductHome()
+    {
+        return $this->model->paginate(8);
+    }
+
     public function getProductsRelate($id, $category_id) {
         return Products::where('id', '!=', $id)
                     ->where('category_id', $category_id)
@@ -161,14 +166,14 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
     public function getProductsNew() {
         return Products::with('category')
                         ->orderBy('id', 'DESC')
-                        ->paginate(4);
+                        ->get();
     }
 
     public function getProductsSale() {
         return Products::with('category')
                         ->where('sale', '>', 0)
                         ->orderBy('sale', 'ASC')
-                        ->paginate(4);
+                        ->get();
     }
 
     public function getProductSeling() {
