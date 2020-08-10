@@ -129,7 +129,7 @@
                         <div class="cart_item_quantity">
                             <div class="product_quantity_container">
                                 <div class="product_quantity clearfix">
-                                  
+
                                     <input id="quantity_input" name="qty" class="update-qty-{{$valueOfCart->rowId}}" type="text" pattern="[0-9]*" value="{{$valueOfCart->qty}}">
                                     <div class="quantity_buttons">
                                         <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>

@@ -385,6 +385,7 @@ Route::group(['namespace'=>'Home'],function (){
         'uses' => 'UserController@showBillDetail',
         'as'   => 'home.transactions.show'
     ]);
+    Route::get('tim-kiem','IndexController@search')->name('home.search');
 });
 
 

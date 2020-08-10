@@ -6,21 +6,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('home/styles/template.css') }}">
 @endsection
 @section('content-home')
-        <!-- Search Panel -->
-        <div class="search_panel trans_300">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="search_panel_content d-flex flex-row align-items-center justify-content-end">
-                            <form action="#">
-                                <input type="text" class="search_input" placeholder="Search" required="required">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Social -->
         <div class="header_social">
             <ul>

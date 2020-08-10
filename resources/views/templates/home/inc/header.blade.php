@@ -104,3 +104,17 @@
                 </div>
             </div>
         </div>
+        <div class="search_panel trans_300">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="search_panel_content d-flex flex-row align-items-center justify-content-end">
+                            <form id="formSearch" data-search-src="{{ route('home.search') }}">
+
+                                <input type="text" class="search_input" name="search" placeholder="Search" required="required">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

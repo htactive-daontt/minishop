@@ -101,6 +101,13 @@ class IndexController extends Controller
         $created = $this->commentRepo->create($data);
 
         return redirect()->back();
+    }
 
+    public function search(Request $request)
+    {
+        $keyword = $request->get('keyword');
+        $data = $this->repository->search($keyword);
+
+        return view('home.page.search', compact('data', 'keyword'));
     }
 }
