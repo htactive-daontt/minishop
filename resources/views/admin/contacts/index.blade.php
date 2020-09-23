@@ -53,9 +53,9 @@
                                                 <td>{{$value->email}}</td>
                                                 <td>{{$value->title}}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-info" data-toggle="modal" data-target="#info-contact{{$stt}}">Xem</a>
-                                                    <a href="javascript:void(0)" class="btn btn-success" data-toggle="modal" data-target="#confilm{{$stt}}">Phản hồi</a>
-                                                    <a href="{{route('admin.contacts.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger" class="btn btn-danger">Xóa</a>
+                                                    <a href="" class="btn btn-info" data-toggle="modal" data-target="#info-contact{{$stt}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                    <a href="javascript:void(0)" class="btn btn-success" data-toggle="modal" data-target="#confilm{{$stt}}"><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.contacts.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                             {{--modal--}}

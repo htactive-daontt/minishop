@@ -67,9 +67,9 @@
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    <a  data-id="{{$value->id}}" class="view_transaction btn btn-info">Xem</a>
-                                                    <a href="{{route('admin.transactions.export',$value->id)}}" class="btn btn-success">In hóa đơn</a>
-                                                    <a href="{{route('admin.transactions.destroy',$value->id)}}" class="btn btn-danger">Xóa</a>
+                                                    <a  data-id="{{$value->id}}" class="view_transaction btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.transactions.export',$value->id)}}" class="btn btn-success"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.transactions.destroy',$value->id)}}" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

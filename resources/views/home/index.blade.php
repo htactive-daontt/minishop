@@ -85,7 +85,7 @@
                                         <div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
                                             <div class="home_slider_title">{{ $valueOfSlide->title }}</div>
                                             <div class="home_slider_subtitle">{{ $valueOfSlide->preview }}</div>
-                                            <div class="button button_light home_button"><a href="">Chi tiết</a></div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
 
             <!-- Home Slider Dots -->
 
-            <div class="home_slider_dots_container">
+             <div class="home_slider_dots_container">
                 <div class="container">
                     <div class="row">
                         <div class="col">
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
 
         </div>
     </div>

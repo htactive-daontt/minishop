@@ -62,8 +62,8 @@
                                                     <img src="{{ $value->getImg() }}" style="width: 100px" alt="">
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    <a href="{{route('admin.slides.update',$value->id)}}" class="btn btn-primary">Sửa</a>
-                                                    <a href="{{route('admin.slides.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger">Xóa</a>
+                                                    <a href="{{route('admin.slides.update',$value->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.slides.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -30,6 +30,6 @@ class SendMailOrder extends Mailable
      */
     public function build()
     {
-        return $this->view('maill.approved_bill')->subject('Sakura')->with(['data'=>$this->data]);
+        return $this->view('maill.approved_bill')->subject('MiniShop')->with(['data'=>$this->data]);
     }
 }

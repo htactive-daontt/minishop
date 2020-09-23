@@ -1006,7 +1006,6 @@ section
 	height: 61px;
 	border: solid 2px #d0d0d0;
 	overflow: hidden;
-	padding-left: 78px;
 	vertical-align: middle;
 }
 .product_quantity span
@@ -1026,7 +1025,8 @@ section
 .product_quantity input
 {
 	display: block;
-	width: 30px;
+	width: 100%;
+	text-align: center !important;
 	height: 57px;
 	border: none;
 	outline: none;

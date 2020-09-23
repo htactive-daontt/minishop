@@ -60,8 +60,8 @@
                                                     {{$value->roles->first()->name}}
                                                 </td>
                                                 <td>
-                                                    <a href="{{route('admin.users.update',$value->id)}}" class="btn btn-primary">Sửa</a>
-                                                    <a href="{{route('admin.users.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger" >Xóa</a>
+                                                    <a href="{{route('admin.users.update',$value->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.users.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger" ><i class="fa fa-window-close" aria-hidden="true"></i></a>
 
                                                 </td>
                                             </tr>

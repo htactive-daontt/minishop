@@ -233,7 +233,9 @@
         #icon {
             width:60%;
         }
-
+        .footer {
+                display:none;
+        }
     </style>
 @endsection
 @section('content-home')

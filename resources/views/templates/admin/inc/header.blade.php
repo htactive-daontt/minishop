@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title> @yield('title-admin') - Sakura </title>
+    <title> @yield('title-admin') - MINISHOP </title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -25,7 +25,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{route('admin.index')}}">Sakura - Dashboard</a>
+            <a class="navbar-brand" href="{{route('admin.index')}}">MINISHOP</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

@@ -69,12 +69,12 @@
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    <a href="javascript:void(0)" class="btn btn-info" data-toggle="modal" data-id="{{ $value->id }}" data-target="#info-product{{$stt}}">Chi tiết</a>
+                                                    <a href="javascript:void(0)" class="btn btn-info" data-toggle="modal" data-id="{{ $value->id }}" data-target="#info-product{{$stt}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                     @if( $value->comment_count >0 )
                                                         <a href="{{ route('admin.products.comment', [$value->slug, $value->id]) }}" class="btn btn-success">Xem bình luận</a>
                                                     @endif
-                                                    <a href="{{route('admin.products.update',$value->id)}}" class="btn btn-primary">Sửa</a>
-                                                    <a href="{{route('admin.products.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger">Xóa</a>
+                                                    <a href="{{route('admin.products.update',$value->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.products.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                             {{--form modal--}}

@@ -105,13 +105,12 @@
                             <div class="sorting">
                                 <ul class="item_sorting">
                                     <li>
-                                        <span class="sorting_text">Sort by</span>
+                                        <span class="sorting_text">Sắp xếp</span>
                                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                         <ul>
-                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default</span></li>
-                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Name</span></li>
-                                        </ul>
+                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Mặc định</span></li>
+                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Giá bán</span></li>
+                                         </ul>
                                     </li>
                                 </ul>
                             </div>

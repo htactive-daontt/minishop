@@ -296,7 +296,7 @@
                             <span>{{$objectProduct->category->name}}</span>
                         </div>
                         <div class="details_text">
-                            <p>{{$objectProduct->preview}}</p>
+                            <p>Mô tả: {{$objectProduct->preview}}</p>
                         </div>
                         <p class="alert-danger">{{$errors->first('qty')}}</p>
                         <!-- Product Quantity -->
@@ -320,10 +320,10 @@
                         <div class="details_share">
                             <span>Share:</span>
                             <ul>
-                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.pinterest.com/login/"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/accounts/login/?"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/login?lang=vi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>

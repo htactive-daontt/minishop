@@ -6,44 +6,39 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>Giới thiệu</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();">Tôi tên Bình, 22 tuổi, đi bộ, dân IT. Độc thân, vui tính, yêu hòa bình ghét sự giả dỗi.</a></li>
-                        <li><a href="javascript:void();">Ai muốn yêu vui lòng liên hệ nhá.</a></li>
+                        <li><a href="javascript:void();">MINISHOP chuyên bán mỹ phẩm chính hãng cam kết hàng chính hãng</a></li>
+                        <li><a href="javascript:void();">Có sỉ và lẻ mọi mặt hàng</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>Địa chỉ</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();">Mlem</a></li>
-                        <li><a href="javascript:void();">123</a></li>
-                        <li><a href="javascript:void();">ĐÀO MLEM</a></li>
+                        <li><a href="javascript:void();">33 Bàu Trảng 7 </a></li>
+                        <li><a href="javascript:void();">Thanh Khê</a></li>
+                        <li><a href="javascript:void();">Đà Nẵng</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>Liên hệ</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();">123</a></li>
-                        <li><a href="javascript:void();">123</a></li>
+                        <li><a href="javascript:void();">SĐT: 0332114500</a></li>
+                        <li><a href="javascript:void();">Email: nguyenthithudao75h12@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://twitter.com/login?lang=vi"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/accounts/login/?"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://myaccount.google.com/u/0/profile"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><i class="fa fa-envelope"></i></a></li>
                     </ul>
                 </div>
                 </hr>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p class="h6">.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">By Bình</a></p>
-                </div>
-                </hr>
-            </div>
+           
         </div>
     </div>
 </footer>

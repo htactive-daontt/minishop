@@ -58,8 +58,8 @@
                                                 <td>{{{date('d/m/Y',strtotime($value->create_day))}}}</td>
                                                 <td>{{date('d/m/Y',strtotime($value->end_day))}}</td>
                                                 <td style="text-align: center;">
-                                                    <a href="{{route('admin.giftcode.update',$value->id)}}" class="btn btn-primary">Sửa</a>
-                                                    <a href="{{route('admin.giftcode.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger">Xóa</a>
+                                                    <a href="{{route('admin.giftcode.update',$value->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.giftcode.destroy',$value->id)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

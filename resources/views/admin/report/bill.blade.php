@@ -63,7 +63,7 @@
                                                 <td>{{number_format($value->total_pay)}} đ</td>
                                                 <td>{{ date( "d/m/Y", strtotime($value->created_at)) }}</td>
                                                 <td style="text-align: center;">
-                                                    <a  data-id="{{$value->id}}" class="view_transaction btn btn-info">Xem</a>
+                                                    <a  data-id="{{$value->id}}" class="view_transaction btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

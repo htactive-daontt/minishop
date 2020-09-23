@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Phân quyền</h1>
+                    <h1 class="page-header">{{ $role->name }}</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -30,37 +30,21 @@
                             @endif
                         </div>
                         <!-- /.panel-heading -->
-                        @if(isset($roles))
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Tên</th>
-                                            <th>Quyền</th>
-                                            <th>Chức Năng</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @php $stt=0 @endphp
-                                        @foreach($roles as $value)
-                                            @php $stt++; @endphp
-                                            <tr class="gradeU delete-{{$value->id}}">
-                                                <td>{!! $stt !!}</td>
-                                                <td>{{ $value->name }}</td>
-                                                <td>{{ $value->guard_name }}</td>
-                                                <td>
-                                                    <a href="{{route('admin.rolep.edit',$value->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
+                        @if(isset($permissions))
+                        <div style="padding: 10px">
+                            <form action="{{route('admin.rolep.postEdit', $role->id)}}" method="post">
+                                @csrf
+                                @foreach($permissions as $key => $value)
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" name="role[]" {{ in_array($value->id, $checked) ? 'checked' : '' }} value="{{$value->id}}">{{ $value->name }}</label>
+                                    </div>
+                                @endforeach
+                                <div>
+                                    <input type="submit" class="btn btn-primary" value="Cập nhập">
                                 </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                    @endif
+                            </form>
+                        </div>
+                        @endif
                     <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->

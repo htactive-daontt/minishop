@@ -40,7 +40,7 @@
                                             <td>{{ count($value->report_bill) }} đơn</td>
                                             <td>{{ $value->roles->first()->name }}</td>
                                             <td>
-                                                <a href="javascript:void(0)" data-id="{{$value->id}}" class="btn btn-info view_employee_detail">Xem</a>
+                                                <a href="javascript:void(0)" data-id="{{$value->id}}" class="btn btn-info view_employee_detail"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

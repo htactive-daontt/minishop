@@ -50,7 +50,7 @@
 <body>
     <div id="bill">
         <div class="bill-title">
-            <h3>Sakura Shop</h3>
+            <h3>MINIShop</h3>
             <h5>Đc: Hải Châu - Đà Nẳng</h5>
         </div>
         <div class="bill-footer" >

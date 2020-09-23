@@ -119,17 +119,17 @@
                                     </div>
                                     <div class="col-xl-4 last_name_col">
                                         <!-- Last Name -->
-                                        <label for="contact_last_name">Phone*</label>
+                                        <label for="contact_last_name">SĐT*</label>
                                         <input type="text" name="phone" id="contact_last_name" value="{{ \App\Helpers\Helper::getPhoneContact() }}" class="contact_input" required="required">
                                     </div>
                                 </div>
                                 <div>
                                     <!-- Subject -->
-                                    <label for="contact_company">Subject</label>
+                                    <label for="contact_company">Tiêu đề</label>
                                     <input type="text" name="title" id="contact_company" class="contact_input" required>
                                 </div>
                                 <div>
-                                    <label for="contact_textarea">Message*</label>
+                                    <label for="contact_textarea">Nội dung*</label>
                                     <textarea id="contact_textarea" name="content" class="contact_input contact_textarea" required="required"></textarea>
                                 </div>
                                 <button class="button contact_button"><span>Gởi</span></button>
@@ -142,7 +142,7 @@
                 <div class="col-lg-3 offset-xl-1 contact_col">
                     <div class="contact_info">
                         <div class="contact_info_section">
-                            <div class="contact_info_title">nhân viên</div>
+                            <div class="contact_info_title">Nhân viên</div>
                             <ul>
                                 <li>SĐT: <span>+0332114500</span></li>
                                 <li>Email: <span>nguyenthithudao@gmail.com</span></li>

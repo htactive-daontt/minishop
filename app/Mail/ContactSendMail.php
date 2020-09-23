@@ -31,6 +31,6 @@ class ContactSendMail extends Mailable
     public function build()
     {
 
-        return $this->view('maill.confirm_contact')->subject('Sakura')->with(['content'=>$this->data]);
+        return $this->view('maill.confirm_contact')->subject('MiniShop')->with(['content'=>$this->data]);
     }
 }
