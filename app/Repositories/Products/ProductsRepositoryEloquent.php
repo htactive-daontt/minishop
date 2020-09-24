@@ -4,6 +4,7 @@ namespace App\Repositories\Products;
 
 use App\Criteria\WithCountRelationshipCriteria;
 use App\Entities\Categories\Categories;
+use App\Ultis\File;
 use Illuminate\Support\Facades\Storage;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -42,9 +43,6 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
 
     public function getProducts() {
         $data =  Products::with('category')->withCount('comment')->get();
-        foreach ($data as $key => $value) {
-            $data[$key]['images'] = json_decode($value->images);
-        }
 
         return $data;
     }
@@ -54,9 +52,15 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
     }
 
     public function createProduct($request) {
-        $images = '';
+        $images = [];
+
+        $thumbnail = File::upload($request['thumbnail'], 'products_thumbnail');
+
         if ( isset($request['images']) ) {
-            $images = $this->handleMutiphilePicture($request['images'], 'public/products_images');
+            foreach ($request['images'] as $key => $value)
+            {
+                $images[$key] = File::upload($value, 'products_images');
+            }
         }
         $arrProduct = [
             'name' => $request['nameproduct'],
@@ -66,12 +70,12 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
             'sale'  => $request['sale'],
             'preview'    =>  $request['preview'],
             'detail'    =>  $request['detail'],
-            'thumbnail' =>  $this->handlePicture( $request['thumbnail'], 'public/products_thumbnail'),
+            'thumbnail' =>  $thumbnail,
             'images'    =>  $images,
             'category_id'   =>  $request['idcat']
         ];
         //dd($arrProduct);
-        $create = Products::insert($arrProduct);
+        $create = $this->model->create($arrProduct);
         if ($create) {
             return 'Thêm thành công';
         }else {
@@ -79,29 +83,13 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
         }
     }
 
-    public function handlePicture($picture, $path) {
-        $filePath = $picture->store($path);
-        $arFile = explode('/', $filePath);
-        $name = end($arFile);
-        return $name;
-    }
-    public function handleMutiphilePicture($pictures, $path) {
-        foreach ($pictures as $key => $value) {
-            $filePath = $value->store($path);
-            $arFile = explode('/', $filePath);
-
-            $data[$key] = end($arFile);
-        }
-        return json_encode($data);
-    }
 
     public function destroyProduct($id) {
         $object = Products::find($id);
-        Storage::delete('products_thumbnail/'.$object->thumbnail);
+        File::delete($object->thumbnail);
         if (empty($object->images)) {
-            $images = json_decode($object->images);
-            foreach ($images as $key => $value) {
-                Storage::delete('public/products_images/'.$value);
+            foreach ($object->images as $key => $value) {
+                File::delete($value);
             }
         }
         $object->delete();
@@ -121,13 +109,27 @@ class ProductsRepositoryEloquent extends BaseRepository implements ProductsRepos
 
         $thumbnail = $object->thumbnail;
         $images = $object->images;
+        
         if (isset($data['thumbnail'])) {
-            //Storage::delete('public/products_thumbnail/'.$object->thumbnail);
-
-            $filePath = $data['thumbnail']->store('public/products_thumbnail');
-            $arFile = explode('/', $filePath);
-            $thumbnail = end($arFile);
+            $destroyFile = File::delete($object->thumbnail);
+            if($destroyFile) {
+                $thumbnail = File::upload($data['thumbnail'],'products_thumbnail');
+            }        
         }
+        if (isset($data['images'])) {
+            if(!empty($object->images)) {
+                foreach($object->images as $valueDe) {
+                    File::delete($valueDe);
+                    $images = [];
+                }
+            }
+
+            foreach($data['images'] as $key => $value) {
+                $images[$key] = File::upload($value, 'products_images');
+            }
+            //dd($data['images']);
+        }
+
 
         $update = [
             'name'  => $data['nameproduct'],

@@ -100,7 +100,7 @@
                                                                 <p><strong>Hình ảnh mô tả</strong>:</p>
                                                                 @foreach($value->images as $keyOfImg => $valueOfImg)
                                                                     <div class="info-img" style="display: inline-block">
-                                                                        <img src="{{ asset("storage/products_images/$valueOfImg") }}" style="width: 100px" alt="">
+                                                                        <img src="{{ \App\Ultis\File::getFile($valueOfImg) }}" style="width: 100px" alt="">
                                                                     </div>
                                                                 @endforeach
                                                             @endif

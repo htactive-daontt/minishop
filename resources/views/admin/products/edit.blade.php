@@ -61,6 +61,10 @@
                                             <input type="file" class="form-control" name="thumbnail" >
                                         </div>
                                         <div class="form-group">
+                                            <label>Hình ảnh chi tieest</label>
+                                            <input type="file" class="form-control" name="images[]" multiple>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Giá</label>
                                             <input type="number" class="form-control" name="price" step="0.01" value="{{$data['product']->price}}">
                                         </div>

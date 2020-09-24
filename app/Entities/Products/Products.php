@@ -2,6 +2,7 @@
 
 namespace App\Entities\Products;
 
+use App\Ultis\File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Prettus\Repository\Contracts\Transformable;
@@ -23,6 +24,10 @@ class Products extends Model implements Transformable
      */
     protected $fillable = [
         'name','qty','sale','price','preview','detail','thumbnail','images','category_id'
+    ];
+
+    protected $casts = [
+        'images' => 'array'
     ];
 
     public function category() {
@@ -63,7 +68,6 @@ class Products extends Model implements Transformable
     public function getImg() {
         $src = $this->thumbnail;
 
-        return asset("storage/products_thumbnail/$src");
-        //return Storage::get('products_thumbnail/'.$src);
+        return File::getFile($src);
     }
 }

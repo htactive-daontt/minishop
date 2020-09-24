@@ -93,7 +93,7 @@
                 <!-- Product Image -->
                 <div class="col-lg-6">
                     <div class="details_image">
-                        <div class="details_image_large"><img src="{{ asset("storage/news_thumbnail/$newDetail->thumbnail") }}" alt=""></div>
+                        <div class="details_image_large"><img src="{{ \App\Ultis\File::getFile($newDetail->thumbnail) }}" alt=""></div>
                     </div>
                 </div>
 

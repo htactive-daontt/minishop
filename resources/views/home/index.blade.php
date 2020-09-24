@@ -77,7 +77,7 @@
 
                 @foreach($data['slides'] as $keyOfSlide => $valueOfSlide)
                     <div class="owl-item home_slider_item abc">
-                        <div class="home_slider_background" style="background-image:url({{ asset("storage/slides_thumbnail/$valueOfSlide->thumbnail") }})"></div>
+                        <div class="home_slider_background" style="background-image:url({{ \App\Ultis\File::getFile($valueOfSlide->thumbnail) }})"></div>
                         <div class="home_slider_content_container">
                             <div class="container">
                                 <div class="row">

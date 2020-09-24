@@ -20,7 +20,7 @@
                     $thumbnail = $value->product->thumbnail;
                     $price = $value->product->price;
                 @endphp
-                <img src="{{ asset("storage/products_thumbnail/$thumbnail") }}" style="max-width: 100px">
+                <img src="{{ \App\Ultis\File::getFile($thumbnail) }}" style="max-width: 100px">
             </td>
             <td>
                 @if($value->product->sale > 0)

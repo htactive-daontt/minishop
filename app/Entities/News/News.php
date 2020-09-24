@@ -2,6 +2,7 @@
 
 namespace App\Entities\News;
 
+use App\Ultis\File;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -31,7 +32,7 @@ class News extends Model implements Transformable
     public function getImg(){
         $src = $this->thumbnail;
 
-        return asset("storage/news_thumbnail/$src");
+        return File::getFile($src);
     }
 
 }

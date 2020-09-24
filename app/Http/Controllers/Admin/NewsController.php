@@ -29,7 +29,7 @@ class NewsController extends Controller
     public function index()
     {
         $news = $this->repository->getNews();
-    //dd($news);
+       
         return view('admin.news.index', compact('news'));
     }
 

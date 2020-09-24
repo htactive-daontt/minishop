@@ -8,6 +8,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\Slides\SlidesRepository;
 use App\Entities\Slides\Slides;
+use App\Ultis\File;
 use App\Validators\Slides\SlidesValidator;
 
 /**
@@ -44,15 +45,15 @@ class SlidesRepositoryEloquent extends BaseRepository implements SlidesRepositor
     public function createSlide($data)
     {
         $data['user_id'] = Auth::id();
-        $data['thumbnail'] = $this->handleThumbnail($data['thumbnail'], 'public/slides_thumbnail');
+        $data['thumbnail'] = File::upload($data['thumbnail'], 'slides_thumbnail');
         $create = $this->insert($data);
         return 'Thêm thành công';
     }
 
     public function deleteSlide($id) {
         $object = Slides::find($id)->first();
-        Storage::delete('public/slides_thumbnail/'.$object->thumbnail);
-        $object->delete();
+        File::delete($object->thumbnail);
+
         return 'Xóa thành công';
     }
 
@@ -66,9 +67,9 @@ class SlidesRepositoryEloquent extends BaseRepository implements SlidesRepositor
 
     public function updateSlide($data, $id) {
         if ( isset($data['thumbnail']) ) {
-            $data['thumbnail'] = $this->handleThumbnail($data['thumbnail'], 'public/slides_thumbnail');
+            $data['thumbnail'] = File::upload($data['thumbnail'],'slides_thumbnail');
             $slide = Slides::find($id);
-            Storage::delete('public/slides_thumbnail/'.$slide->thumbnail);
+            File::delete($slide->thumbnail);
         }
         $updated = $this->update($data, $id);
 

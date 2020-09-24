@@ -116,7 +116,7 @@
                         <div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
                             <div class="cart_item_image">
                                 @php $thumbnail = $valueOfCart->options->thumbnail; @endphp
-                                <div><img src="{{ asset("storage/products_thumbnail/$thumbnail") }}" alt=""></div>
+                                <div><img src="{{ \App\Ultis\File::getFile($thumbnail) }}" alt=""></div>
                             </div>
                             <div class="cart_item_name_container">
                                 <div class="cart_item_name"><a href="#">{{ $valueOfCart->name }}</a></div>

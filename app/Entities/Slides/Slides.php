@@ -2,6 +2,7 @@
 
 namespace App\Entities\Slides;
 
+use App\Ultis\File;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -31,6 +32,6 @@ class Slides extends Model implements Transformable
     public function getImg() {
         $src = $this->thumbnail;
 
-        return asset("storage/slides_thumbnail/$src");
+        return File::getFile($src);
     }
 }

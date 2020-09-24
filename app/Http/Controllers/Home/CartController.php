@@ -19,6 +19,7 @@ class CartController extends Controller
     }
 
     public function index() {
+        dd(str_replace(',','',Cart::subtotal(0,3)));
         return view('home.page.cart');
     }
 

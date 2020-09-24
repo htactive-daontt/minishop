@@ -124,7 +124,7 @@
                     <div class="product_grid">
                         @foreach($news as $key => $value)
                             <div class="product">
-                                <div class="product_image"><img src="{{ asset("storage/news_thumbnail/$value->thumbnail") }}" alt=""></div>
+                                <div class="product_image"><img src="{{ \App\Ultis\File::getFile($value->thumbnail) }}" alt=""></div>
                                 <div class="product_content">
                                     <div class="product_title">
                                         <a href="{{route('home.page.newDetail', $value->id)}}">

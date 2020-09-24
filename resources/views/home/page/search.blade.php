@@ -124,7 +124,7 @@
                     <div class="product_grid">
                         @foreach($data as $key => $value)
                             <div class="product">
-                                <div class="product_image"><img src="{{ asset("storage/products_thumbnail/$value->thumbnail") }}" alt=""></div>
+                                <div class="product_image"><img src="{{ \App\Ultis\File::getFile($value->thumbnail) }}" alt=""></div>
                                 <div class="product_extra product_new"><a href="">New</a></div>
                                 {{--<div class="product_extra product_sale"><a href="categories.html">Sale</a></div>--}}
                                 <div class="product_content">

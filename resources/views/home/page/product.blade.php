@@ -265,11 +265,11 @@
                 <!-- Product Image -->
                 <div class="col-lg-6">
                     <div class="details_image">
-                        <div class="details_image_large"><img src="{{ asset("storage/products_thumbnail/$objectProduct->thumbnail") }}" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+                        <div class="details_image_large"><img src="{{ \App\Ultis\File::getFile($objectProduct->thumbnail) }}" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
                         @if(!empty($objectProduct->images))
                             <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
                                 @foreach($objectProduct->images as $valueOfImages)
-                                    <div class="details_image_thumbnail active" data-image="{{ asset("storage/products_images/$valueOfImages") }}"><img src="{{ asset("storage/products_images/$valueOfImages") }}" alt=""></div>
+                                    <div class="details_image_thumbnail active" data-image="{{ \App\Ultis\File::getFile($valueOfImages) }}"><img src="{{ \App\Ultis\File::getFile($valueOfImages) }}" alt=""></div>
                                 @endforeach
                             </div>
                         @endif
